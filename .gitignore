@@ -1,0 +1,39 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente Virtual
+venv/
+.venv/
+env/
+ENV/
+
+# Banco de dados Django (desenvolvimento local)
+db.sqlite3
+db.sqlite3-journal
+
+# Arquivos de Midia e Arquivos Estáticos (gerados)
+media/
+staticfiles/
+static/
+
+# Configurações de Variáveis de Ambiente (Segurança)
+.env
+.secrets/
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cobertura de Testes
+htmlcov/
+.coverage
+.cache/
+
+# Django Rest Framework/Python Package
+*.egg-info/
+dist/
+build/
