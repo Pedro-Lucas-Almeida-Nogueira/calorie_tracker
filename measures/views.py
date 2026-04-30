@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Measures
+from .serializers import MeasuresSerializer
 
-# Create your views here.
+class MeasuresViewSet(viewsets.ModelViewSet):
+    queryset = Measures.objects.all()
+    serializer_class = MeasuresSerializer
