@@ -13,3 +13,19 @@ def calculate_tmb(gender, birth_date, created_at, height, weight):
     tmb = (10 * weight_kg) + (6.25 * height_cm) - (5 * age) -161
 
     return tmb
+
+def calculate_calories_burned(tmb, activity_level):
+    multiplier = 1
+    match activity_level:
+        case 1:
+            multiplier = 1.2
+        case 2:
+            multiplier = 1.375
+        case 3:
+            multiplier = 1.55
+        case 4:
+            multiplier = 1.725
+        case 5:
+            multiplier = 1.9
+
+    return tmb * multiplier

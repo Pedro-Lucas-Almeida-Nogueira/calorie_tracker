@@ -8,4 +8,4 @@ class UserAttributesAdmin(admin.ModelAdmin):
 
 @admin.register(Measures)
 class MeasuresAdmin(admin.ModelAdmin):
-    list_display = ['user', 'height', 'weight', 'created_at', 'updated_at']
+    list_display = ['user', 'height', 'weight', 'activity_level', 'created_at', 'updated_at']

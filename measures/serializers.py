@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Measures, UserAttributes
-from .service import calculate_tmb
+from .service import calculate_tmb, calculate_calories_burned
 
 class UserAttributesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,6 +10,7 @@ class UserAttributesSerializer(serializers.ModelSerializer):
 
 class MeasuresSerializer(serializers.ModelSerializer):
     tmb = serializers.SerializerMethodField()
+    calories_burned = serializers.SerializerMethodField()
 
     class Meta:
         model = Measures
@@ -24,3 +25,10 @@ class MeasuresSerializer(serializers.ModelSerializer):
         weight = obj.weight
 
         return calculate_tmb(gender, birth_date, created_at, height, weight)
+    
+    def get_calories_burned(self, obj):
+        tmb = self.get_tmb(obj)
+        activity_level = obj.activity_level
+
+        return calculate_calories_burned(tmb, activity_level)
+        
