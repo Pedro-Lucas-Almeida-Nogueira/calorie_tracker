@@ -11,6 +11,10 @@ class MeasuresViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        date = self.request.GET.get("date")
+        if date:
+            return Measures.objects.filter(created_at__date=date)
+
         return Measures.objects.filter(user=self.request.user)
 
 
